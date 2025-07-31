@@ -1,10 +1,8 @@
-# 🔧 2D MMORPG Turn-based Online Game
+# 🔧 Turn-based Idle RPG 2D Service
 
-This repository contains modular Spring Boot API projects forming the backend infrastructure for an upcoming 2D online turn-based MMORPG game. The architecture is designed for scalability, modularity, and future public release.
+This repository contains modular Spring Boot API projects forming the backend infrastructure for an upcoming 2D online turn-based idle RPG game. The architecture is designed for scalability, modularity, and future public release.
 
 ## 📁 Projects
-
-- [Client](./client) – Unity-based game client implementing player movement, combat, UI, and communication logic. Connects to the backend via gateway using HTTP requests.
 
 - [Authentication Service](./auth-service) – Stateless service responsible for processing login requests (via social providers), generating access/refresh tokens, and delegating credential verification to external services.
 
@@ -17,6 +15,10 @@ This repository contains modular Spring Boot API projects forming the backend in
 - [Redis Cache](./redis-cache) – Provides in-memory caching for frequently accessed data like player sessions, leaderboard, or temporary game states. Intended to reduce DB load and latency.
 
 Each module is independently runnable and documented in its own README.md file.
+
+### 🔗 Related Repositories
+- [`Spring Boot API`](https://github.com/phnam2301/spring-boot-api)
+- [`Turn-based Idle RPG 2D Unity Client`](https://github.com/phnam2301/turnbased-irpg-2d-unity-client)
 
 ---
 
