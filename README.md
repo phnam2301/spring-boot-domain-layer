@@ -6,11 +6,11 @@ This repository contains modular Spring Boot API projects forming the backend in
 
 - [Authentication Service](./auth-service) – Stateless service responsible for processing login requests (via social providers), generating access/refresh tokens, and delegating credential verification to external services.
 
+- [Chat Service](./chat-service) – Manages real-time player chat, private messaging, and channel subscriptions. Built with WebSocket or Redis pub/sub for scalable delivery.
+
 - [Game Core](./game-core) – Contains core logic and mechanics of the game, such as turn-based combat resolution, skill effects, character states, and PVE/PVP simulations.
 
 - [Game Service](./game-service) – A Spring Boot module that serves as the interface between the game logic and the data layer. It encapsulates business workflows, delegates core logic execution to **Game Core**, and handles data interaction through internal services.
-
-- [Chat Service](./chat-service) – Manages real-time player chat, private messaging, and channel subscriptions. Built with WebSocket or Redis pub/sub for scalable delivery.
 
 - [Redis Cache](./redis-cache) – Provides in-memory caching for frequently accessed data like player sessions, leaderboard, or temporary game states. Intended to reduce DB load and latency.
 
