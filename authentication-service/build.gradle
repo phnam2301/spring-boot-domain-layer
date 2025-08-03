@@ -1,44 +1,55 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.5.4'
-	id 'io.spring.dependency-management' version '1.1.7'
+    id 'java'
+    id 'com.diffplug.spotless' version '6.25.0'
+    id 'org.springframework.boot' version '3.5.4'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'vn.chuot96'
 version = '0.0.1-SNAPSHOT'
 
 bootJar{
-	archiveFileName = 'authentication-service.jar'
+    archiveFileName = 'authentication-service.jar'
 }
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+spotless {
+    java {
+        palantirJavaFormat()
+        target 'src/**/*.java'
+    }
+    format 'misc', {
+        target '*.gradle', '*.md', '.gitignore', '*.properties', '*.yml', '*.yaml', '*.xml', '*.json', '*.sh'
+    }
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
