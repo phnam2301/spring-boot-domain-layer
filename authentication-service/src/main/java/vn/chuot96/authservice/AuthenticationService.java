@@ -1,4 +1,4 @@
-package vn.chuot96.authenticationservice;
+package vn.chuot96.authservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AuthenticationService {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AuthenticationService.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(AuthenticationService.class, args);
+    }
 }
