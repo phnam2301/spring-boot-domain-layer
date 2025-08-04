@@ -8,7 +8,7 @@ plugins {
 group = 'vn.chuot96'
 version = '0.0.1-SNAPSHOT'
 
-bootJar{
+bootJar {
     archiveFileName = 'authentication-service.jar'
 }
 
@@ -25,6 +25,9 @@ spotless {
     }
     format 'misc', {
         target '*.gradle', '*.md', '.gitignore', '*.properties', '*.yml', '*.yaml', '*.xml', '*.json', '*.sh'
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
     }
 }
 
