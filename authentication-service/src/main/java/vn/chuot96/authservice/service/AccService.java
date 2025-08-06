@@ -16,17 +16,20 @@ public class AccService {
         return accRepo.findIdByCredential(credential);
     }
 
-    public Mono<?> insertGuestAcc(String credential) {
+    public Mono<Long> insertGuestAcc(String credential) {
         return accRepo.save(Acc.builder()
-                .code(Generator.generateCode())
-                .credential(credential)
-                .build());
+                        .code(Generator.generateCode())
+                        .credential(credential)
+                        .build())
+                .map(Acc::getId);
     }
 
-    public Mono<Acc> updateCredential(String guest, String credential) {
-        return accRepo.findByCredential(guest).flatMap(acc -> {
-            acc.setCredential(credential);
-            return accRepo.save(acc);
-        });
+    public Mono<Long> updateCredential(String current, String replace) {
+        return accRepo.findByCredential(current)
+                .flatMap(acc -> {
+                    acc.setCredential(replace);
+                    return accRepo.save(acc);
+                })
+                .map(Acc::getId);
     }
 }

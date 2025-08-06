@@ -13,22 +13,23 @@ import reactor.core.publisher.Mono;
 public class ForwardHelper {
     private final WebClient.Builder webBuilder;
 
-    public <T, R> Mono<R> post(T requestBody, Class<R> responseType) {
+    public <T, R> Mono<R> post(String appName, String endpoint, T requestBody, Class<R> responseType) {
         return webBuilder
-                .baseUrl("http://token-issuer-api")
+                .baseUrl("http://" + appName)
                 .build()
                 .post()
-                .uri("issue/access-refresh")
+                .uri(endpoint)
                 .header("William-K+Devannis@Phan-Hoang-Nam+1996@Dev.vn", "turn+based-i+rpg-2d.authentication@service")
                 .bodyValue(requestBody)
                 .retrieve()
                 .onStatus(HttpStatusCode::isError, clientResponse -> clientResponse
                         .bodyToMono(String.class)
                         .map(errorBody -> {
-                            log.error("HTTP error from http://token-issuer-api: {}", errorBody);
+                            log.error("HTTP error from http://{}{}: {}", appName, endpoint, errorBody);
                             return new RuntimeException("Downstream error: " + errorBody);
                         }))
                 .bodyToMono(responseType)
-                .doOnError(error -> log.error("Error during POST to http://token-issuer-api: {}", error.getMessage()));
+                .doOnError(error ->
+                        log.error("Error during POST to http://{}{}: {}", appName, endpoint, error.getMessage()));
     }
 }
