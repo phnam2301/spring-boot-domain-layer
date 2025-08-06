@@ -1,12 +1,11 @@
-package vn.chuot96.chatservice;
+package vn.chuot96.authservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ChatService {
-
+public class AuthenticationService {
     public static void main(String[] args) {
-        SpringApplication.run(ChatService.class, args);
+        SpringApplication.run(AuthenticationService.class, args);
     }
 }
