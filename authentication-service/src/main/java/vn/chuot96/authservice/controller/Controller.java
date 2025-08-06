@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
-import vn.chuot96.authservice.dto.LinkRequestDTO;
 import vn.chuot96.authservice.dto.RequestDTO;
 import vn.chuot96.authservice.service.AuthService;
 
@@ -23,12 +22,12 @@ public class Controller {
     }
 
     @PostMapping("/register")
-    public Mono<ResponseEntity<?>> login(@RequestBody RequestDTO request) {
-        return authService.handleLogin(request);
+    public Mono<ResponseEntity<?>> register(@RequestBody RequestDTO request) {
+        return authService.handleRegister(request);
     }
 
     @PostMapping("/link")
-    public Mono<ResponseEntity<?>> link(@RequestBody LinkRequestDTO request) {
+    public Mono<ResponseEntity<?>> link(@RequestBody RequestDTO request) {
         return authService.handleLink(request);
     }
 
