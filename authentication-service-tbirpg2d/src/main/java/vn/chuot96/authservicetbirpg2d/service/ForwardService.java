@@ -1,10 +1,10 @@
-package vn.chuot96.authservice.service;
+package vn.chuot96.authservicetbirpg2d.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-import vn.chuot96.authservice.compo.ForwardHelper;
-import vn.chuot96.authservice.dto.UserDTO;
+import vn.chuot96.authservicetbirpg2d.comp.ForwardHelper;
+import vn.chuot96.authservicetbirpg2d.dto.UserDTO;
 
 @Service
 @RequiredArgsConstructor
