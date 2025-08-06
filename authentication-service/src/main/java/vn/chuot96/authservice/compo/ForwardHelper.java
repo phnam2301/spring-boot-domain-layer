@@ -1,4 +1,4 @@
-package vn.chuot96.authservice.component;
+package vn.chuot96.authservice.compo;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,24 +11,24 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @RequiredArgsConstructor
 public class ForwardHelper {
-    private final WebClient.Builder webClient;
+    private final WebClient.Builder webBuilder;
 
-    public <T, R> Mono<R> post(String sub, String uri, String headerValue, T requestBody, Class<R> responseType) {
-        return webClient
-                .baseUrl("http://" + sub)
+    public <T, R> Mono<R> post(T requestBody, Class<R> responseType) {
+        return webBuilder
+                .baseUrl("http://token-issuer-api")
                 .build()
                 .post()
-                .uri(uri)
-                .header("X-Service-Token", headerValue)
+                .uri("issue/access-refresh")
+                .header("William-K+Devannis@Phan-Hoang-Nam+1996@Dev.vn", "turn+based-i+rpg-2d.authentication@service")
                 .bodyValue(requestBody)
                 .retrieve()
                 .onStatus(HttpStatusCode::isError, clientResponse -> clientResponse
                         .bodyToMono(String.class)
                         .map(errorBody -> {
-                            log.error("HTTP error from http://{}{}: {}", sub, uri, errorBody);
+                            log.error("HTTP error from http://token-issuer-api: {}", errorBody);
                             return new RuntimeException("Downstream error: " + errorBody);
                         }))
                 .bodyToMono(responseType)
-                .doOnError(error -> log.error("Error during POST to http://{}{}: {}", sub, uri, error.getMessage()));
+                .doOnError(error -> log.error("Error during POST to http://token-issuer-api: {}", error.getMessage()));
     }
 }
