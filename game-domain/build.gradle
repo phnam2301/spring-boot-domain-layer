@@ -9,7 +9,7 @@ group = 'vn.chuot96'
 version = '0.0.1-SNAPSHOT'
 
 bootJar {
-	archiveFileName = "token-issuer-api.jar"
+	archiveFileName = "game-domain.jar"
 }
 
 java {
