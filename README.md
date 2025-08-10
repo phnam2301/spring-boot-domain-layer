@@ -1,32 +1,46 @@
-# 🔧 Turn-based Idle RPG 2D Service
+# 🔧 Spring Boot Domain Layer
 
-This repository contains modular Spring Boot API projects forming the backend infrastructure for an upcoming 2D online turn-based idle RPG game. The architecture is designed for scalability, modularity, and future public release.
+This repository contains domains layer built with Spring Boot, serving as plugin modules that integrate core logic projects with external services.
 
 ## 📁 Projects
 
-- [Authentication Service](./auth-service) – Stateless service responsible for processing login requests (via social providers), generating access/refresh tokens, and delegating credential verification to external services.
+- [Game Domain](./game-domain) – Acts as an intermediary, coordinating different game logic/core projects and communicating with other backend services.
 
-- [Chat Service](./chat-service) – Manages real-time player chat, private messaging, and channel subscriptions. Built with WebSocket or Redis pub/sub for scalable delivery.
-
-- [Game Core](./game-core) – Contains core logic and mechanics of the game, such as turn-based combat resolution, skill effects, character states, and PVE/PVP simulations.
-
-- [Game Service](./game-service) – A Spring Boot module that serves as the interface between the game logic and the data layer. It encapsulates business workflows, delegates core logic execution to **Game Core**, and handles data interaction through internal services.
-
-- [Redis Cache](./redis-cache) – Provides in-memory caching for frequently accessed data like player sessions, leaderboard, or temporary game states. Intended to reduce DB load and latency.
-
-Each module is independently runnable and documented in its own README.md file.
+Each module is independently runnable and documented in its own **README.md** file.
 
 ### 🔗 Related Repositories
-- [`Spring Boot API`](https://github.com/phnam2301/spring-boot-api)
-- [`Turn-based Idle RPG 2D Unity Client`](https://github.com/phnam2301/turnbased-irpg-2d-unity-client)
+- [`Spring Boot Microservice Platform`](https://github.com/phnam2301/spring-boot-microservice-platform)
+- [`Spring Boot Core Layer`](https://github.com/phnam2301/spring-boot-core-layer)
+- [`Unity TBIRPG2D Client`](https://github.com/phnam2301/unity-tbirpg2d-client)
 
 ---
 
-### 📝 License
+### 🛠 Contribute
 
-This repository is currently **not licensed**. All rights reserved by the author.  
-Use, reproduction, and distribution of the code are **not permitted** without explicit permission.  
-If you'd like to use or contribute, please [contact the author](mailto:phnam230197@gmail.com).
+If you’d like to contribute or share your code, **do not commit directly to 'main'**
+
+Please create a new branch using the allowed proper prefixes: **feature/** , **bugfix/** , **hotfix/** , **dev/** , **release/**
+
+#### ⚠️ If you don’t use a proper prefix, your branch might not be protected and could be modified by others
+
+#### 💡 Before committing:
+Make sure to run **spotlessApply** to auto-format your code using **palantirJavaFormat()** and avoid unnecessary formatting conflicts
+
+You can run it with:
+```bash
+./gradlew spotlessApply
+```
+
+You can also view the formatter rules in the [checkstyle](./checkstyle.xml) file
+
+Then open a Pull Request (PR) to merge into 'main'
+
+#### ➡️ All changes will be reviewed before merging, use meaningful branch names and commit messages
+
+---
+
+### ⚖️ License:
+This repository is licensed under the **MIT** License
 
 ---
 
