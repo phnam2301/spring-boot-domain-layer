@@ -1,9 +1,11 @@
-package org.wliamp.profile.model;
+package org.wliamp.profile.document;
 
 import java.util.List;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.wliamp.profile.model.*;
+import org.wliamp.profile.model.Character;
 
 @Data
 @Document(collection = "players")
@@ -12,7 +14,7 @@ public class Player {
     private String id;
 
     private Stats stats;
-    private Server server;
+    private Zone zone;
     private BasicInfo info;
     private List<Character> characters;
     private List<Inventory> inventories;

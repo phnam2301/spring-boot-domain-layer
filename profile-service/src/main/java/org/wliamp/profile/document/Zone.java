@@ -1,4 +1,4 @@
-package org.wliamp.profile.model;
+package org.wliamp.profile.document;
 
 import java.util.Date;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document(collection = "servers")
-public class Server {
+public class Zone {
     @Id
     private String id;
 
