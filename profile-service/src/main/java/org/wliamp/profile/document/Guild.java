@@ -1,9 +1,10 @@
-package org.wliamp.profile.model;
+package org.wliamp.profile.document;
 
 import java.util.Map;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.wliamp.profile.model.Stats;
 
 @Data
 @Document(collection = "guilds")

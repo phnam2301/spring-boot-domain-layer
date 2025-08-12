@@ -1,7 +1,6 @@
 package org.wliamp.profile.repo;
 
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
-import org.wliamp.profile.model.Player;
+import org.wliamp.profile.document.Player;
 
-public interface PlayerRepo extends ReactiveMongoRepository<String, Player> {
-}
+public interface PlayerRepo extends ReactiveMongoRepository<String, Player> {}
