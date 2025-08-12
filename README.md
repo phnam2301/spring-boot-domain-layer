@@ -32,8 +32,6 @@ You can run it with:
 ./gradlew spotlessApply
 ```
 
-You can also view the formatter rules in the [checkstyle](./checkstyle.xml) file
-
 Then open a Pull Request (PR) to merge into 'main'
 
 #### ➡️ All changes will be reviewed before merging, use meaningful branch names and commit messages
