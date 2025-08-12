@@ -1,4 +1,4 @@
-# 🔧 Spring Boot Turn-based Idle RPG 2D Service
+# 🔧 Turn-based Idle RPG 2D Service
 
 This repository contains modules built with Spring Boot, serving as a backend service for managing turn-based idle RPG game logic and data.
 
