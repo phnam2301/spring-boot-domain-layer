@@ -1,16 +1,17 @@
-# 🔧 Spring Boot Domain Layer
+# 🔧 Spring Boot Turn-based Idle RPG 2D Service
 
-This repository contains domains layer built with Spring Boot, serving as plugin modules that integrate core logic projects with external services.
+This repository contains modules built with Spring Boot, serving as a backend service for managing turn-based idle RPG game logic and data.
 
 ## 📁 Projects
 
-- [Game Domain](./game-domain) – Acts as an intermediary, coordinating different game logic/core projects and communicating with other backend services.
+- [Game Service](./game-service) – Provides the core turn-based idle RPG gameplay mechanics, including battle handling, quest progression, reward calculation, and in-game event logic.
+
+- [Profile Service](./profile-service) – Handles the storage, retrieval, and management of player profiles, character stats, achievements, and other persistent game-related information.
 
 Each module is independently runnable and documented in its own **README.md** file.
 
 ### 🔗 Related Repositories
 - [`Spring Boot Microservice Platform`](https://github.com/phnam2301/spring-boot-microservice-platform)
-- [`Spring Boot Core Layer`](https://github.com/phnam2301/spring-boot-core-layer)
 - [`Unity TBIRPG2D Client`](https://github.com/phnam2301/unity-tbirpg2d-client)
 
 ---
