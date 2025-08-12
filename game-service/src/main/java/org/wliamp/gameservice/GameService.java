@@ -1,11 +1,11 @@
-package vn.chuot96.gameservice;
+package org.wliamp.gameservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GameDomain {
+public class GameService {
     public static void main(String[] args) {
-        SpringApplication.run(GameDomain.class, args);
+        SpringApplication.run(GameService.class, args);
     }
 }

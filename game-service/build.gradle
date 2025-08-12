@@ -5,11 +5,11 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'vn.chuot96'
+group = 'org.wliamp'
 version = '0.0.1-SNAPSHOT'
 
 bootJar {
-	archiveFileName = "game-domain.jar"
+	archiveFileName = "game-service.jar"
 }
 
 java {
