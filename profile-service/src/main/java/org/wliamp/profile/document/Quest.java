@@ -1,20 +1,16 @@
 package org.wliamp.profile.document;
 
-import java.util.Date;
-import java.util.List;
-
-import lombok.Builder;
+import java.util.Map;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Builder
-@Document(collection = "servers")
-public class Zone {
+@Document(collection = "quests")
+public class Quest {
     @Id
     private String id;
 
-    private Date created;
-    private List<Guild> guilds;
+    private String playerId;
+    private Map<String, Long> tasks;
 }
