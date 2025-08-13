@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
+import org.wliamp.profile.dto.BundleDTO;
 import org.wliamp.profile.service.ProfileService;
 import reactor.core.publisher.Mono;
 
@@ -17,7 +18,9 @@ public class RouteHelper {
     }
 
     public Mono<ServerResponse> save(ServerRequest request) {
-        return profileService.saveProfile(request);
+        return request.bodyToMono(BundleDTO.class)
+                .flatMap(profileService::saveProfile)
+                .then(ServerResponse.ok().build());
     }
 
 }
