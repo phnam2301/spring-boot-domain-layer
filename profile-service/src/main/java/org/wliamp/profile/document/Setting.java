@@ -1,8 +1,5 @@
 package org.wliamp.profile.document;
 
-import java.util.Date;
-import java.util.List;
-
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -10,11 +7,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Builder
-@Document(collection = "servers")
-public class Zone {
+@Document(collection = "settings")
+public class Setting {
     @Id
     private String id;
 
-    private Date created;
-    private List<Guild> guilds;
+    private String locale;
+    private int volume;
+    private boolean muted;
+
 }
