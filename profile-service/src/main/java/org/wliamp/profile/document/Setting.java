@@ -15,5 +15,4 @@ public class Setting {
     private String locale;
     private int volume;
     private boolean muted;
-
 }

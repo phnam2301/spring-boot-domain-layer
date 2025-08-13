@@ -16,10 +16,13 @@ public class RouterConfig {
     private final RouteHelper helper;
 
     @Bean
-    public RouterFunction<ServerResponse> profileRoute() {
-        return route().nest(path("/profile"), () -> route()
-                        .POST("/load",  helper::load)
-                        .POST("/save", helper::save)
+    public RouterFunction<ServerResponse> profileRoutes() {
+        return route().nest(path("/profile"), () -> route().nest(
+                                path("/load"), () -> route().POST("/lobby", helper::loadLobby)
+                                        .POST("/ingame", helper::loadIngame)
+                                        .build())
+                        .nest(path("/save"), () -> route().POST("", helper::save)
+                                .build())
                         .build())
                 .build();
     }

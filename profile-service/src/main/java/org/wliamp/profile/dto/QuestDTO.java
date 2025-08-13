@@ -1,3 +1,3 @@
 package org.wliamp.profile.dto;
 
-public record SettingDTO() {}
+public record QuestDTO() {}

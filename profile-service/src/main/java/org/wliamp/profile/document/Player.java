@@ -1,13 +1,12 @@
 package org.wliamp.profile.document;
 
 import java.util.List;
-
+import java.util.Map;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.wliamp.profile.model.*;
-import org.wliamp.profile.model.Character;
 
 @Data
 @Builder
@@ -16,10 +15,11 @@ public class Player {
     @Id
     private String id;
 
-    private Stats stats;
-    private Zone zone;
-    private BasicInfo info;
-    private List<Character> characters;
-    private List<Inventory> inventories;
-    private List<Quest> quests;
+    private String accountId;
+    private String guildId;
+    private String zoneId;
+    private Map<String, Long> stats;
+    private Map<String, Long> inventories;
+    private Map<String, String> information;
+    private List<Figure> figures;
 }
